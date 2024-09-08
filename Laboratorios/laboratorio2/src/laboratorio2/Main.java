@@ -45,7 +45,8 @@ public class Main {
                 case 3:
                     System.out.print("Enter the email of the contact to search: ");
                     email = scanner.nextLine();
-                    addressBook.searchContact(email);
+                    Contact result = addressBook.searchContact(email);
+                    result.print();
                     break;
                 case 4:
                     System.out.print("Enter the email of the contact to delete: ");

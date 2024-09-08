@@ -33,12 +33,13 @@ public class AddressBook {
         }
     }
 
-    public void searchContact(String email) {
+    public Contact searchContact(String email) {
         if (contacts.containsKey(email)) {
-        	System.out.println(contacts.get(email));
+            return this.contacts.get(email);
         } else {
             System.out.println("Contact not found.");
         }
+		return null;
     }
 
     public void deleteContact(String email) {
@@ -52,7 +53,8 @@ public class AddressBook {
     
     public void storeContact() {
     	try {
-            FileOutputStream file = new FileOutputStream("contactos.ser");
+            FileOutputStream file = new FileOutputStream("contact1"
+            		+ "s.ser");
             ObjectOutputStream oos = new ObjectOutputStream(file);
             oos.writeObject(contacts);
             oos.close();
@@ -63,7 +65,7 @@ public class AddressBook {
         }
     }
     
-    public void loadContact() {
+    public HashMap loadContact() {
     	try {
             FileInputStream file = new FileInputStream("contacts.ser");
             ObjectInputStream ois = new ObjectInputStream(file);
@@ -74,5 +76,6 @@ public class AddressBook {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    	return contacts;
     }
 }

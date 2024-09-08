@@ -1,7 +1,8 @@
 package laboratorio2;
 
-
-public class Contact {
+import java.io.Serializable;
+//implemente la interfaz "Serializable" para que el objeto "contact" que es un dato del hashmap pueda ser serializable
+public class Contact implements Serializable {
     private String name;
     private String email;
     private Integer age;
