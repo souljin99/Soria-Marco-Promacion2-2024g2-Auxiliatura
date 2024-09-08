@@ -40,11 +40,12 @@ public class ContactManager {
              out.writeObject(contacts);
              out.close();
              file.close();
+             System.out.println("the contacts has been saved in the 'file.ser' file ");
          } catch (IOException i) {
              i.printStackTrace();
          }
     }
-    public HashMap showSavedContacts() {
+    public void showSavedContacts() {
     	try {
             FileInputStream fileIn = new FileInputStream("file.ser");
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -56,11 +57,8 @@ public class ContactManager {
                 contact.print();
             }
 
-        } catch (IOException i) {
-            i.printStackTrace();
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
+        }  catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
-		return contacts;
     }
 }

@@ -65,7 +65,7 @@ public class AddressBook {
         }
     }
     
-    public HashMap loadContact() {
+    public void loadContact() {
     	try {
             FileInputStream file = new FileInputStream("contacts.ser");
             ObjectInputStream ois = new ObjectInputStream(file);
@@ -76,6 +76,5 @@ public class AddressBook {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-    	return contacts;
     }
 }
